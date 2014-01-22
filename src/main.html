@@ -1,0 +1,14 @@
+<form >
+
+    <h1>Weather Demo</h1>
+
+    <ul>
+        <!-- Loop through the services array, assign a click handler, and set or
+            remove the "active" css class if needed -->
+        <li ng-repeat="event in events.things" ng-click="toggleActive(event)" ng-click="doSomething($event)" ng-class="{active:event.active}">
+            <!-- Notice the use of the currency filter, it will format the price -->
+            <a ui-sref="detail({eventName : event.name})">{{event.name}}</a>
+        </li>
+    </ul>
+
+</form>

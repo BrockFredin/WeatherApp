@@ -1,0 +1,39 @@
+<form>
+    <h1>Detail View for {{selectedEvent.name}}!</h1>
+    <br>
+    <label for="city">City</label>
+    <input type="text" id="city" ng-model="city"/>
+    <label for="state">State</label>
+    <input type="state" id="state" ng-model="state"/>
+    <input type="submit" ng-click="getDataForCityAndState(city, state)"/>
+    <br><br>
+    Search:  <input type="search" ng-model="q" placeholder="search filter" />
+    <br><br>
+
+    <select ng-model="value" ng-change="change(value)">
+        <option value="">work</option>
+        <option value="snow">ski</option>
+        <option value="clear">beach</option>
+        <option value="rain">rain</option>
+        <option value="mostly cloudy">mostly cloudy</option>
+    </select>
+
+    </section>
+
+    {{keys}}
+    <!-- This is all not working and needs to be reworked.  This is just boilerplate code for an ng-repeat.  Loop through the services array, assign a click handler, and set or
+        remove the "active" css class if needed -->
+    <ul>
+        <li ng-repeat="forecastDay in weather.forecast.simpleforecast.forecastday | filter:q | filter:value">
+            <img ng-src="{{forecastDay.icon_url}}" alt=""><h2>{{forecastDay.date.weekday}}</h2>
+            <h5>{{forecastDay.date.monthname}} {{forecastDay.date.day}} {{forecastDay.date.year}}</h5>
+            <p>High: {{forecastDay.high.fahrenheit}}F /  {{forecastDay.high.celsius}}C</p>
+            <p>Low: {{forecastDay.low.fahrenheit}}F / {{forecastDay.low.celsius}}C</p>
+            <p>Conditions: {{forecastDay.conditions}}</p>
+            <br>
+
+        </li>
+    </ul>
+
+</form>
+<a ui-sref="list">Back to list...</a>
