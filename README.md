@@ -7,7 +7,7 @@ I am calling Weather Underground's API and returning 5 day forecast information 
 
 Working Plunkr:
 
-plnkr.co/edit/lUNlPoO6Nj6qHSlybQM4?p=preview
+http://plnkr.co/edit/lUNlPoO6Nj6qHSlybQM4?p=preview
 
 Code:
 
