@@ -30,19 +30,19 @@ myApp.factory('DataService', function($http) {
 });
 
 myApp.filter('activityFilter', function() {
-        //first define some helper functions
-        return function(input) {
-            var out;
-            if (input) {
-                for (var i in input) {
-                    if (input[i] < out || out === undefined || out === null) {
-                        out = input[i];
-                    }
-                }
-            }
-            return out;
-        };
-    }
+    //first define some helper functions
+     return function(input) {
+      var out;
+      if (input) {
+        for (var i in input) {
+          if (input[i] < out || out === undefined || out === null) {
+            out = input[i];
+          }
+        }
+      }
+      return out;
+    };
+  }
 );
 
 
@@ -92,7 +92,7 @@ myApp.controller("EventDetailCtrl", function ($scope, $state, DataService, Event
 
         })
     }
-
+    
     $scope.change = function(value){
 
         DataService.async("minneapolis","mn").success(function(wundergroundData){
@@ -100,6 +100,11 @@ myApp.controller("EventDetailCtrl", function ($scope, $state, DataService, Event
             var something = wundergroundData.forecast.simpleforecast.temperature.high;
         })
     }
+    
+    $scope.convertToK = function(temp){
+       return (temp - 32) * 5/9 + 273.145;
+    }
+    
 
     $scope.selectedEvent = {
         name : $state.params.eventName
